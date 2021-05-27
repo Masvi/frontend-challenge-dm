@@ -1,0 +1,31 @@
+.table {
+  &__header {
+    display: grid;
+    grid-template-columns: 15% 45% 15% 15% 5%;
+    color: #fff;
+    border-top: 2px solid $gray300;
+    border-right: 2px solid $gray300;
+    border-left: 2px solid $gray300;
+    background-color: $gray300;
+  
+    @media screen and (max-width: 920px) {
+      display: none;
+    }
+
+    > div {
+      padding: 10px;
+      font-family: $font-secondary;
+      font-size: 13px;
+      text-transform: uppercase;
+      border-left: 2px solid $gray300;
+
+      &:first-child {
+        border-left: none;
+      }
+    }
+  }
+
+  &__content {
+    border: 2px solid $gray400;
+  }
+}
