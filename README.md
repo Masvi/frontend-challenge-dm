@@ -1,5 +1,4 @@
-# DELIVERY MUCH 
-## Frontend challenge
+# DELIVERY MUCH ## Frontend challenge
 
 ## Project setup
 ```
