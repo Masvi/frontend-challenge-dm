@@ -1,0 +1,14 @@
+@import '@/assets/global/typography.scss';
+
+.header {
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.logo {
+  margin: 0;
+  font-family: $font-secondary;
+  font-size: 32px;
+  font-weight: 700;
+}
