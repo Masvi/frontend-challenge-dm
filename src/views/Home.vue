@@ -3,7 +3,8 @@
 </template>
 
 <script>
-import service from '../services'
+
+import service from '../services';
 
 export default {
   name: 'Home',
