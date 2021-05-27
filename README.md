@@ -1,4 +1,4 @@
-# frontend-challenge-dm
+# Frontend challenge DELIVERY MUCH
 
 ## Project setup
 ```
