@@ -1,24 +1,41 @@
-# frontend-challenge-dm
+# GitHub Stars - Frontend Challenge
 
-## Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+### :computer: Developing
 
-### Compiles and minifies for production
-```
-npm run build
-```
+#### :clipboard: Prerequisities
 
-### Lints and fixes files
-```
-npm run lint
+You must have [NodeJS](https://nodejs.org/en/) installed before all.
+
+#### :checkered_flag: How to start
+
+First, cloning the project. Then, open your bash and run the following commands:
+
+```bash
+# install dependencies
+yarn
+# or npm install
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+And to start the project:
+
+```bash
+# to start the project
+yarn start
+# or npm run serve
+```
+
+A server on port [8080](http://localhost:8080) will be started.
+
+## :microscope: Testing
+
+
+## :hammer: Building
+
+To build the project:
+
+```bash
+# to start the project
+yarn build
+# or npm run build
+```

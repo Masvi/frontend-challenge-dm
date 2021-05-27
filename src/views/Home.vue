@@ -1,13 +1,16 @@
 <template>
-  <div>Frontend Challenge DELIVERY MUCH</div> 
+  <Header/>
 </template>
 
 <script>
-
-import service from '../services';
+import Header from '@/components/Header';
+import service from '@/services'
 
 export default {
   name: 'Home',
+  components: {
+    Header,
+  },
   methods: {
     getStarredRepositoriesByUser(username) {
       service.getStarredRepositories(username).then((data) => {
