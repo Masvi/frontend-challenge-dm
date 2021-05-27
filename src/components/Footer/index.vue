@@ -1,14 +1,14 @@
 <template>
-  <header class="header">
+  <footer class="footer">
     <div class="wrap">
-      <h1 class="logo">Github Stars</h1>
+      <p>Front-End Challenge: Github Stars developed by Celso Fabri, Diego Luz and Jean Masvi.</p>
     </div>
-  </header>
+  </footer>
 </template>
 
 <script>
   export default {
-    name: 'Header'
+    name: 'Footer'
   }
 </script>
 

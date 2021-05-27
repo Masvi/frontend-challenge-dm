@@ -1,22 +1,22 @@
 <template>
-  <Header/>
+  <div>
+    <Header/>
+    <SearchUser/>
+    <Footer/>
+  </div>
 </template>
 
 <script>
 import Header from '@/components/Header';
-import service from '@/services'
+import Footer from '@/components/Footer';
+import SearchUser from '@/containers/SearchUser';
 
 export default {
   name: 'Home',
   components: {
     Header,
-  },
-  methods: {
-    getStarredRepositoriesByUser(username) {
-      service.getStarredRepositories(username).then((data) => {
-        console.log(data)
-      })
-    }
+    Footer,
+    SearchUser
   }
 }
 </script>

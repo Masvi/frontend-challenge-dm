@@ -1,0 +1,10 @@
+@import '@/assets/global/colors.scss';
+
+.form {
+
+  &__input {
+    display: block;
+    padding: 8px 16px;
+    border: 2px solid $black;
+  }
+}
