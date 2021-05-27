@@ -1,7 +1,7 @@
 # GitHub Stars - Frontend Challenge
 
 
-## :computer: Developing
+### :computer: Developing
 
 #### :clipboard: Prerequisities
 
