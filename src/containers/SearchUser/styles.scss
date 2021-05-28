@@ -23,6 +23,12 @@
   }
 
   .form__input {
+    display: inline-block;
+    width: auto;
+    padding: 5px;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
 
     &:focus {
       padding: 0;
