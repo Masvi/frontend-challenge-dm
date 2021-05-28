@@ -1,7 +1,9 @@
 <template>
   <div>
-    <Header/>
+    <Header />
     <BaseLoading v-show="isLoading" />
+    <SearchUser />
+    <Footer />
   </div>
 </template>
 
@@ -9,6 +11,8 @@
 import Header from '@/components/Header';
 import BaseLoading from '@/components/BaseLoading';
 import service from '@/services'
+import Footer from '@/components/Footer';
+import SearchUser from '@/containers/SearchUser';
 
 export default {
   name: 'Home',
