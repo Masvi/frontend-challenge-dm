@@ -3,6 +3,8 @@
     :type="type" 
     :class="classes" 
     :placeholder="placeholder"
+    :value="value"
+    @input="$emit('input', $event.target.value)"
   >
 </template>
 
@@ -19,6 +21,10 @@
         default: ''
       },
       placeholder: {
+        type: String,
+        default: ''
+      },
+      value: {
         type: String,
         default: ''
       }

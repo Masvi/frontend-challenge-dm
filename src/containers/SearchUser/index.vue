@@ -2,10 +2,11 @@
   <section class="search">
     <div class="wrap">
       <div class="search__container">
-        <form class="search__form">
+        <div class="search__form">
           <div class="search__group">
             <p>https://github.com/</p>
             <Input 
+              v-model="username"
               :type="'text'" 
               :class="'form__input'" 
               :placeholder="'Usuário do github'"
@@ -17,7 +18,7 @@
             :label="'Buscar repositórios'"
             @click="getStarredRepositoriesByUser"
           />
-        </form>
+        </div>
       </div>
     </div>
   </section>
@@ -33,10 +34,15 @@
       Input,
       Button
     },
+    data () {
+      return {
+        username: ''
+      }
+    },
     methods: {
-      getStarredRepositoriesByUser (username) {
-        console.log(username);
-        this.$emit('get-repos', username);
+      getStarredRepositoriesByUser () {
+        console.log(this.username);
+        this.$emit('get-repos', this.username);
       },
     }
   }
