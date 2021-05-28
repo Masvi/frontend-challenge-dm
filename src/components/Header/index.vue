@@ -1,7 +1,9 @@
 <template>
   <header class="header">
     <div class="wrap">
-      <h1 class="logo">Github Stars</h1>
+      <h1 class="logo">
+        Github Stars
+      </h1>
     </div>
   </header>
 </template>

@@ -1,6 +1,9 @@
 <template>
-  <button :type="type" :class="classes">
-    {{defaultValue}}
+  <button 
+    :type="type" 
+    :class="classes"
+  >
+    {{ label }}
   </button>
 </template>
 
@@ -16,7 +19,7 @@
         type: String,
         default: ''
       },
-      defaultValue: {
+      label: {
         type: String,
         default: ''
       }

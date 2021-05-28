@@ -3,22 +3,30 @@
 .search {
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   flex-wrap: wrap;
   width: 100%;
   height: calc(100vh - 120px);
+  text-align: center;
 
-  &__info {
-    font-family: $font-secondary;
+  &__group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
 
     p {
-      font-size: 14px;
+      font-family: $font-primary;
+      margin: 0;
     }
   }
 
-  &__form {
-    display: flex;
-    justify-content: center;
-    align-content: center;
+  .form__input {
+
+    &:focus {
+      padding: 0;
+      border-color: transparent;
+    }
   }
 }

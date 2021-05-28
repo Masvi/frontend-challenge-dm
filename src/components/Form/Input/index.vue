@@ -1,5 +1,9 @@
 <template>
-  <input :type="type" :class="classes" :placeholder="placeholder">
+  <input 
+    :type="type" 
+    :class="classes" 
+    :placeholder="placeholder"
+  >
 </template>
 
 <script>

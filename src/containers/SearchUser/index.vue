@@ -3,12 +3,20 @@
     <div class="wrap">
       <div class="search__container">
         <form class="search__form">
-          <Input type="text" class="form__input" placeholder="Usuário do github"/>
-          <Button type="submit" class="btn" defaultValue="Buscar repositórios"/>
+          <div class="search__group">
+            <p>https://github.com/</p>
+            <Input 
+              :type="'text'" 
+              :class="'form__input'" 
+              :placeholder="'Usuário do github'"
+            />
+          </div>
+          <Button 
+            :type="'submit'" 
+            :class="'btn'" 
+            :label="'Buscar repositórios'"
+          />
         </form>
-        <div class="search__info">
-          <p>Insira o nome de usuário sem o @ no campo acima.</p>
-        </div>
       </div>
     </div>
   </section>
