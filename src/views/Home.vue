@@ -2,12 +2,13 @@
   <div>
     <Header />
     <SearchUser 
-      v-if="!repositories.lenght"
+      v-if="!repositories.length"
       @get-repos="getStarredRepositoriesByUser"
     />
-    <pre v-else>
-      {{ repositories }}
-    </pre>
+    <RepositoryList
+      v-else
+      :repositories="repositories"
+    />
     <Footer />
   </div>
 </template>
@@ -16,6 +17,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SearchUser from '@/containers/SearchUser';
+import RepositoryList from '@/containers/RepositoryList';
 import service from '@/services'
 
 export default {
@@ -23,12 +25,13 @@ export default {
   data() {
     return {
         repositories: [],
-      };
+    };
   },
   components: {
     Header,
     Footer,
-    SearchUser
+    SearchUser,
+    RepositoryList
   },
   methods: {
       getStarredRepositoriesByUser (username) {
@@ -40,7 +43,3 @@ export default {
     }
 }
 </script>
-
-<style>
-
-</style>

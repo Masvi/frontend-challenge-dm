@@ -30,6 +30,10 @@
   }
 
   &__content {
-    border: 2px solid $gray400;
+    border: 2px solid $gray300;
+  }
+
+  .column {
+    width: 100%;
   }
 }
