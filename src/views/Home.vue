@@ -15,21 +15,21 @@
 <script>
 import BaseLoading from '@/components/Loading';
 import RepositoryList from '@/containers/RepositoryList';
-import service from '@/services'
 import SearchUser from '@/containers/SearchUser';
+import service from '@/services'
 
 export default {
   name: 'Home',
+  components: {
+    SearchUser,
+    RepositoryList,
+    BaseLoading
+  },
   data() {
     return {
       repositories: [],
       isLoading: false
     };
-  },
-  components: {
-    SearchUser,
-    RepositoryList,
-    BaseLoading
   },
   methods: {
     getStarredRepositoriesByUser(username) {

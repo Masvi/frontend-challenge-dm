@@ -1,6 +1,10 @@
 <template>
-  <button :type="type" @click="$emit('click')" :class="classes">
-    {{defaultValue}}
+  <button 
+    :type="type" 
+    :class="classes"
+    @click="$emit('click')"
+  >
+    {{ label }}
   </button>
 </template>
 
@@ -16,7 +20,7 @@
         type: String,
         default: ''
       },
-      defaultValue: {
+      label: {
         type: String,
         default: ''
       }

@@ -1,3 +1,4 @@
+@import '@/assets/global/typography.scss';
 @import '@/assets/global/colors.scss';
 
 .form {
@@ -5,6 +6,8 @@
   &__input {
     display: block;
     padding: 8px 16px;
+    font-family: $font-primary;
     border: 2px solid $black;
+    transition: all .4s ease-out;
   }
 }
