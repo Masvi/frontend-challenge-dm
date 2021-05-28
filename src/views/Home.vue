@@ -9,12 +9,12 @@
 
 import BaseLoading from '@/components/Loading';
 import service from '@/services'
-//import SearchUser from '@/containers/SearchUser';
+import SearchUser from '@/containers/SearchUser';
 
 export default {
   name: 'Home',
   components: {
-
+    SearchUser,
     BaseLoading
   },
   data() {
