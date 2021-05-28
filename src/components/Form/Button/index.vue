@@ -2,6 +2,7 @@
   <button 
     :type="type" 
     :class="classes"
+    @click="$emit('click')"
   >
     {{ label }}
   </button>

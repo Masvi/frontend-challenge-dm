@@ -12,9 +12,10 @@
             />
           </div>
           <Button 
-            :type="'submit'" 
+            :type="'button'" 
             :class="'btn'" 
             :label="'Buscar repositórios'"
+            @click="getStarredRepositoriesByUser"
           />
         </form>
       </div>
@@ -25,7 +26,6 @@
 <script>
   import Input from '@/components/Form/Input';
   import Button from '@/components/Form/Button';
-  import service from '@/services'
 
   export default {
     name: 'SearchUser',
@@ -34,11 +34,10 @@
       Button
     },
     methods: {
-      getStarredRepositoriesByUser(username) {
-        service.getStarredRepositories(username).then((data) => {
-          console.log(data)
-        })
-      }
+      getStarredRepositoriesByUser (username) {
+        console.log(username);
+        this.$emit('get-repos', username);
+      },
     }
   }
 </script>
