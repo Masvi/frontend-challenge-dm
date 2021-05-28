@@ -1,5 +1,5 @@
-@import './colors.scss';
-@import './typography.scss';
+@import "./colors.scss";
+@import "./typography.scss";
 
 * {
   margin: 0;
@@ -12,6 +12,18 @@
 
 body {
   font-family: $font-primary;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.main {
+  display: flex;
+  position: relative;
+  margin: 0 auto;
 }
 
 .wrap {
