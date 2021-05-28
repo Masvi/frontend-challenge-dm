@@ -15,11 +15,11 @@
         <div class="column">
           <label>Repository</label>
           <a
-            href={html_url}
+            href="{html_url}"
             target="_blank"
             rel="noopener noreferrer"
           >
-            {{ repo.name ? repo.name : 'No name to show.'}}
+            {{ repo.name ? repo.name : 'No name to show.' }}
           </a>
         </div>
         <div class="column">
@@ -32,7 +32,7 @@
         </div>
         <div class="column">
           <label>Tags</label>
-          <p v-if='repo.tags && repo.tags.length'>
+          <p v-if="repo.tags && repo.tags.length">
             {{ repo.tags | allTags }}
           </p>
           <p v-else>

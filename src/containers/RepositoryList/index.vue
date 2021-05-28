@@ -5,18 +5,18 @@
 </template>
 
 <script>
-import Table from "../../components/Table/index";
+import Table from "@/components/Table/index";
 
 export default {
   name: "RepositoryList",
+  components: {
+    Table,
+  },
   props: {
     repositories: {
       type: Array,
       default: () => []
     }
-  },
-  components: {
-    Table,
   }
 }
 </script>
