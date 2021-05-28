@@ -1,35 +1,42 @@
 <template>
   <div>
     <BaseLoading v-show="isLoading" />
-    <SearchUser />
+    <SearchUser 
+      v-if="!repositories.length"
+      @get-repos="getStarredRepositoriesByUser"
+    />
+    <RepositoryList
+      v-else
+      :repositories="repositories"
+    />
   </div>
 </template>
 
 <script>
-
 import BaseLoading from '@/components/Loading';
+import RepositoryList from '@/containers/RepositoryList';
 import service from '@/services'
-//import SearchUser from '@/containers/SearchUser';
+import SearchUser from '@/containers/SearchUser';
 
 export default {
   name: 'Home',
-  components: {
-
-    BaseLoading
-  },
   data() {
     return {
+      repositories: [],
       isLoading: false
-    }
+    };
   },
-  created() {
-    this.getStarredRepositoriesByUser();
+  components: {
+    SearchUser,
+    RepositoryList,
+    BaseLoading
   },
   methods: {
     getStarredRepositoriesByUser(username) {
       this.handleLoading();
       service.getStarredRepositories(username).then((data) => {
         console.log(data)
+        this.repositories = response.data;
         this.handleLoading();
       });
     },
@@ -39,7 +46,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>
