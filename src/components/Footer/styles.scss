@@ -1,5 +1,5 @@
-@import '@/assets/global/typography.scss';
-@import '@/assets/global/colors.scss';
+@import "@/assets/global/typography.scss";
+@import "@/assets/global/colors.scss";
 
 .footer {
   display: flex;
@@ -11,6 +11,9 @@
   font-weight: 600;
   text-align: center;
   background-color: $black;
+  bottom: 0;
+  left: 0;
+  position: fixed;
 
   p {
     margin: 0;

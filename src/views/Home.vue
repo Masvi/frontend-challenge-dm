@@ -1,22 +1,41 @@
 <template>
   <div>
-    <Header/>
-    <SearchUser/>
-    <Footer/>
+    <BaseLoading v-show="isLoading" />
+    <SearchUser />
   </div>
 </template>
 
 <script>
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import SearchUser from '@/containers/SearchUser';
+
+import BaseLoading from '@/components/Loading';
+import service from '@/services'
+//import SearchUser from '@/containers/SearchUser';
 
 export default {
   name: 'Home',
   components: {
-    Header,
-    Footer,
-    SearchUser
+
+    BaseLoading
+  },
+  data() {
+    return {
+      isLoading: false
+    }
+  },
+  created() {
+    this.getStarredRepositoriesByUser();
+  },
+  methods: {
+    getStarredRepositoriesByUser(username) {
+      this.handleLoading();
+      service.getStarredRepositories(username).then((data) => {
+        console.log(data)
+        this.handleLoading();
+      });
+    },
+    handleLoading() {
+      this.isLoading = !this.isLoading;
+    }
   }
 }
 </script>
