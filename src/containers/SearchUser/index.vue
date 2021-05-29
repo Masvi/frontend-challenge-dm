@@ -3,8 +3,8 @@
     <div class="wrap">
       <div class="search__container">
         <form
-          v-on:submit.prevent="getStarredRepositoriesByUser"
           class="search__form"
+          v-on:submit.prevent="getStarredRepositoriesByUser"
         >
           <div class="search__group">
             <p>https://github.com/</p>
