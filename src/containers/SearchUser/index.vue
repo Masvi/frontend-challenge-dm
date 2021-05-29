@@ -3,7 +3,10 @@
     <div class="wrap">
       <div class="search__container">
         <div class="search__form">
-          <div v-if="error" class="search__error">
+          <div
+            v-if="error"
+            class="search__error"
+          >
             <h3>Ops, ocorreu um erro!</h3>
             <p>O usuário <strong>{{ username }}</strong> não existe. Por favor, verifique o nome de usuário e tente novamente.</p>
           </div>
