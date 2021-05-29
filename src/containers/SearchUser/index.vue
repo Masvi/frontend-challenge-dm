@@ -17,6 +17,7 @@
               :type="'text'" 
               :class="`form__input ${error ? 'form__input--error' : ''}`"
               :placeholder="'Usuário do github'"
+              @keyup="revalidateUsername"
             />
           </div>
           <Button 
@@ -56,6 +57,9 @@
       getStarredRepositoriesByUser () {
         console.log(this.username);
         this.$emit('get-repos', this.username);
+      },
+      revalidateUsername () {
+        this.$emit('revalidate-username', this.username);
       }
     }
   }
