@@ -4,7 +4,6 @@
     :class="classes" 
     :placeholder="placeholder"
     :value="value"
-    :error="error"
     @input="$emit('input', $event.target.value)"
   >
 </template>
@@ -26,10 +25,6 @@
         default: ''
       },
       value: {
-        type: String,
-        default: ''
-      },
-      error: {
         type: String,
         default: ''
       }
