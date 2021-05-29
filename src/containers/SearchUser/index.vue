@@ -4,7 +4,7 @@
       <div class="search__container">
         <form
           class="search__form"
-          v-on:submit.prevent="getStarredRepositoriesByUser"
+          @submit.prevent="getStarredRepositoriesByUser"
         >
           <div class="search__group">
             <p>https://github.com/</p>
