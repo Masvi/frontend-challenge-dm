@@ -12,8 +12,7 @@
 <script>
 
 export default {
-  components: {
-  },
+  name: 'Loading'
 };
 </script>
 
