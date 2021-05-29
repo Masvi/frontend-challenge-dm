@@ -2,7 +2,10 @@
   <section class="search">
     <div class="wrap">
       <div class="search__container">
-        <div class="search__form">
+        <form
+          v-on:submit.prevent="getStarredRepositoriesByUser"
+          class="search__form"
+        >
           <div class="search__group">
             <p>https://github.com/</p>
             <Input 
@@ -12,13 +15,13 @@
               :placeholder="'Usuário do github'"
             />
           </div>
-          <Button 
+          <Button
             :type="'button'" 
             :class="'btn'" 
             :label="'Buscar repositórios'"
             @click="getStarredRepositoriesByUser"
           />
-        </div>
+        </form>
       </div>
     </div>
   </section>
