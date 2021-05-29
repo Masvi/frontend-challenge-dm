@@ -5,6 +5,7 @@
       v-if="!repositories.length"
       :error="isError"
       @get-repos="getStarredRepositoriesByUser"
+      @revalidate-username="revalidateUsername"
     />
     <RepositoryList
       v-else
@@ -46,6 +47,9 @@ export default {
         this.isError = true;
         this.handleLoading();
       });
+    },
+    revalidateUsername() {
+      this.isError = false;
     },
     handleLoading() {
       this.isLoading = !this.isLoading;
