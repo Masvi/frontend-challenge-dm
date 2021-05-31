@@ -45,6 +45,7 @@
           <button
             class="column__edit"
             type="button"
+            @click="openModal"
           >
             <span>Edit</span>
           </button>
@@ -61,13 +62,20 @@ export default {
     repos: {
       type: Array,
       default: () => [],
+    },
+    isOpen: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
-    allTags (tags) {
+    allTags(tags) {
       return tags.map((tag) => {
         return `#${tag} `;
       });
+    },
+    openModal() {
+      this.$emit('set-is-open', true);
     }
   }
 }
