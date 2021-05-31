@@ -2,7 +2,7 @@
   <div 
     class="modal"
     :class="{
-      'modal--show': isOpen
+      'modal--show': modalOpen
     }"
   >
     <div class="wrap">
@@ -49,28 +49,26 @@
       Input,
       Button
     },
-    props: {
-      isOpen: {
-        type: Boolean,
-        default: false
-      },
-      currentRepository: {
-        type: Object,
-        default: () => {}
-      },
-    },
     data() {
       return {
         tags: ''
       }
     },
+    computed: {
+      modalOpen() {
+        return this.$store.getters['modalOpen'];
+      },
+      currentRepository() {
+        return this.$store.getters['currentRepository'];
+      }
+    },
     methods: {
       closeModal() {
-        this.$emit('set-is-open', false);
+        this.$store.dispatch({ type: 'setModalClose' });
       },
       saveTagsAndExit() {
         this.$emit('set-repository-tags', this.tags)
-        this.$emit('set-is-open', false);
+        this.closeModal();
       }
     }
   }

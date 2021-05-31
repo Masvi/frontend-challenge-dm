@@ -2,17 +2,9 @@
   <div class="wrap">
     <div class="list">
       <Search />
-      <Table 
-        :repos="repositories" 
-        :is-open="isOpen"
-        :current-repository="currentRepository"
-        @set-is-open="setIsOpen"
-        @set-current-repository="setCurrentRepository"
-      />
+      <Table />
       <Modal 
-        :is-open="isOpen" 
-        :current-repository="currentRepository"
-        @set-is-open="setIsOpen"
+        v-if="modalOpen"
         @set-repository-tags="setRepositoryTags"
       />
     </div>
@@ -31,27 +23,14 @@ export default {
     Table,
     Modal
   },
-  props: {
-    repositories: {
-      type: Array,
-      default: () => []
+  computed: {
+    modalOpen() {
+      return this.$store.getters['modalOpen'];
     },
-  },
-  data() {
-    return {
-      isOpen: false,
-      currentRepository: {}
-    }
   },
   methods: {
-    setIsOpen(value) {
-      this.isOpen = value;
-    },
-    setCurrentRepository(value) {
-      this.currentRepository = value;
-    },
     setRepositoryTags(value) {
-      this.currentRepository.tags = value.replace(/\s/g, '').split(',');
+      this.$store.dispatch({type: 'setRepositoryTags', value: value.replace(/\s/g, '').split(',')})
     }
   }
 }

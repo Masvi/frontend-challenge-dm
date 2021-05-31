@@ -9,7 +9,7 @@
     </div>
     <div class="table__content">
       <div
-        v-for="(repo, index) in repos"
+        v-for="(repo, index) in repositories"
         :key="index"
         class="table__columns"
       >
@@ -58,24 +58,15 @@
 <script>
 export default {
   name: 'Table',
-  props: {
-    repos: {
-      type: Array,
-      default: () => [],
-    },
-    isOpen: {
-      type: Boolean,
-      default: false
-    },
-    currentRepository: {
-      type: Object,
-      default: () => {}
+  computed: {
+    repositories() {
+      return this.$store.getters['repositories'];
     }
   },
   methods: {
     openModal(repo) {
-      this.$emit('set-is-open', true);
-      this.$emit('set-current-repository', repo);
+      this.$store.dispatch({ type: 'setModalOpen' });
+      this.$store.dispatch({ type: 'setCurrentRepository', value: repo });
     },
     displayTagsAsText(tags) {
       return tags && tags.join(', ');
