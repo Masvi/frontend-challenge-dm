@@ -1,0 +1,23 @@
+.notfound {
+  width: 100%;
+  height: calc(100vh - 120px);
+
+  &__container {
+    text-align: center;
+  }
+
+  &__title {
+    padding-top: 100px;
+    background-image: url('../../assets/bg-star.png');
+    background-position: top center;
+    background-size: 80px auto;
+    background-repeat: no-repeat;
+  }
+
+  .wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+}

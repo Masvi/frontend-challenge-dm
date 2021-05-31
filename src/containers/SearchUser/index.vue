@@ -2,7 +2,10 @@
   <section class="search">
     <div class="wrap">
       <div class="search__container">
-        <div class="search__form">
+        <form
+          class="search__form"
+          @submit.prevent="getStarredRepositoriesByUser"
+        >
           <div
             v-if="error"
             class="search__error"
@@ -21,13 +24,13 @@
               @keyup="revalidateUsername"
             />
           </div>
-          <Button 
+          <Button
             :type="'button'" 
             :class="'btn'" 
             :label="'Buscar repositórios'"
             @click="getStarredRepositoriesByUser"
           />
-        </div>
+        </form>
       </div>
     </div>
   </section>
@@ -56,7 +59,6 @@
     },
     methods: {
       getStarredRepositoriesByUser () {
-        console.log(this.username);
         this.$emit('get-repos', this.username);
       },
       revalidateUsername () {

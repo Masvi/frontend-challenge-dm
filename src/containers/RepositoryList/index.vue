@@ -1,16 +1,19 @@
 <template>
   <div>
+    <Search />
     <Table :repos="repositories" />
   </div>
 </template>
 
 <script>
-import Table from "@/components/Table/index";
+import Search from "@/components/Search";
+import Table from "@/components/Table";
 
 export default {
   name: "RepositoryList",
   components: {
-    Table,
+    Search,
+    Table
   },
   props: {
     repositories: {
