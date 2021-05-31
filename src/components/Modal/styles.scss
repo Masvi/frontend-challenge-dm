@@ -12,10 +12,15 @@
   background-color: rgba(0, 0, 0, 0.5);
   opacity: 0;
   visibility: hidden;
+  transform: scale(1.1);
+  transform: scale(1.1, 1.1, 1.1);
+  transition: all .4s ease-out;;
 
   &--show {
     opacity: 1;
     visibility: visible;
+    transform: scale(1);
+    transform: scale(1, 1, 1);
   }
 
   &__container {
