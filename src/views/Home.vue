@@ -35,7 +35,6 @@ export default {
     getStarredRepositoriesByUser(username) {
       this.handleLoading();
       service.getStarredRepositories(username).then(({ data }) => {
-        console.log(data)
         this.repositories = data;
         this.handleLoading();
       });

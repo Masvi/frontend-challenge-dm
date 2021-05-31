@@ -41,7 +41,6 @@
     },
     methods: {
       getStarredRepositoriesByUser () {
-        console.log(this.username);
         this.$emit('get-repos', this.username);
       },
     }

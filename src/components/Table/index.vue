@@ -11,11 +11,13 @@
       <div
         v-for="(repo, index) in repos"
         :key="index"
+        class="table__columns"
       >
         <div class="column">
-          <label>Repository</label>
+          <label class="column__label">Repository</label>
           <a
-            href="{html_url}"
+            class="column__anchor"
+            :href="repo.html_url"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -23,15 +25,15 @@
           </a>
         </div>
         <div class="column">
-          <label>Description</label>
+          <label class="column__label">Description</label>
           {{ repo.description ? repo.description : 'No description to show.' }}
         </div>
         <div class="column">
-          <label>Language</label>
+          <label class="column__label">Language</label>
           {{ repo.language ? repo.language : 'No language to show.' }}
         </div>
         <div class="column">
-          <label>Tags</label>
+          <label class="column__label">Tags</label>
           <p v-if="repo.tags && repo.tags.length">
             {{ repo.tags | allTags }}
           </p>
@@ -40,7 +42,12 @@
           </p>
         </div>
         <div class="column">
-          edit
+          <button
+            class="column__edit"
+            type="button"
+          >
+            <span>Edit</span>
+          </button>
         </div>
       </div>
     </div>

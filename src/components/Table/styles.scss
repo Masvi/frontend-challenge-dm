@@ -33,7 +33,130 @@
     border: 2px solid $gray300;
   }
 
+  &__columns {
+    display: grid;
+    grid-template-columns: 15% 45% 15% 15% 5%;
+    font-size: 13px;
+    background-color: $gray100;
+
+    &:nth-child(2n + 1) {
+      background-color: #fff;
+    }
+
+    label {
+      display: none;
+    }
+
+    @media screen and (max-width: 920px) {
+      grid-template-columns: 100%;
+      padding: 15px 0;
+    }
+  }
+
   .column {
-    width: 100%;
+    padding: 10px;
+    border-left: 2px solid $gray300;
+
+    &:first-child {
+      border-left: none;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    @media screen and (max-width: 920px) {
+      width: 100%;
+      border-left: none;
+
+      label {
+        display: block;
+      }
+    }
+
+    &__label {
+      display: none;
+      margin-bottom: 5px;
+      font-family: $font-secondary;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    &__anchor {
+      position: relative;
+      display: inline-block;
+      color: $blue300;
+      text-decoration: none;
+
+      &:after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background-color: $blue300;
+        transition: all 0.3s ease-out;
+        content: '';
+      }
+
+      &:hover {
+        &:after {
+          width: 100%;
+        }
+      }
+    }
+
+    &__edit{
+      position: relative;
+      margin: 0;
+      padding: 0 20px 0 0;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+    
+      span {
+        text-decoration: underline;
+      }
+    
+      &:hover {
+        background-image: url("../../assets/edit.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: 12px 12px;
+    
+        span {
+          text-decoration: none;
+        }
+      }
+    
+      @media screen and (max-width: 920px) {
+        min-width: 80px;
+        padding: 10px;
+        font-family: $font-secondary;
+        border: 2px solid $gray300;
+        background-color: #fff;
+        cursor: pointer;
+        transition: all 0.4s ease-out;
+        box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.75);
+    
+        span {
+          text-decoration: none;
+        }
+    
+        &:hover {
+          background-image: none;
+          box-shadow: 3.5px 3.5px 0px 0px rgba(0, 0, 0, 0.75);
+        }
+    
+        &:focus {
+          box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.75);
+        }
+    
+        &:after {
+          content: none;
+        }
+      }
+    }
   }
 }
