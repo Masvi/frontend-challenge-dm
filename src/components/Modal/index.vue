@@ -6,12 +6,16 @@
     }"
   >
     <div class="wrap">
-      <form class="modal__container">
+      <form 
+        class="modal__container"
+        @submit.prevent="saveTagsAndExit"
+      >
         <h5 class="modal__title">
-          Editar tags para `repository name`
+          Editar tags para {{ currentRepository.name }}
         </h5>
         <p>Adicione tags separadas por vírgula. (Ex.: front-end, back-end, development)</p>
         <Input
+          v-model="tags"
           type="text"
           class="form__input"
           placeholder="Insira suas tags separadas por vírgula."
@@ -24,9 +28,10 @@
             @click="closeModal"
           />
           <Button
-            type="submit"
+            type="button"
             class="btn"
             :label="'Salvar'"
+            @click="saveTagsAndExit"
           />
         </div>
       </form>
@@ -48,10 +53,23 @@
       isOpen: {
         type: Boolean,
         default: false
+      },
+      currentRepository: {
+        type: Object,
+        default: () => {}
+      },
+    },
+    data() {
+      return {
+        tags: ''
       }
     },
     methods: {
       closeModal() {
+        this.$emit('set-is-open', false);
+      },
+      saveTagsAndExit() {
+        this.$emit('set-repository-tags', this.tags)
         this.$emit('set-is-open', false);
       }
     }

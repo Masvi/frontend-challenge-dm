@@ -46,8 +46,19 @@ export default {
       this.isError = false;
       this.handleLoading();
       service.getStarredRepositories(username).then(({ data }) => {
-        console.log('data', data);
-        this.repositories = data;
+        this.repositories = data.map((repository) => {
+          const { id, name, language, url, description } = repository;
+
+          return {
+            id,
+            name,
+            language,
+            url,
+            description,
+            tags: []
+          }
+        });
+
         if(!data.length) {
           this.isEmpty = true;
         }

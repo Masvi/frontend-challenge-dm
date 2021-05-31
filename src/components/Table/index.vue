@@ -35,7 +35,7 @@
         <div class="column">
           <label class="column__label">Tags</label>
           <p v-if="repo.tags && repo.tags.length">
-            {{ repo.tags | allTags }}
+            {{ displayTagsAsText(repo.tags) }}
           </p>
           <p v-else>
             No tags to show.
@@ -45,7 +45,7 @@
           <button
             class="column__edit"
             type="button"
-            @click="openModal"
+            @click="openModal(repo)"
           >
             <span>Edit</span>
           </button>
@@ -66,16 +66,19 @@ export default {
     isOpen: {
       type: Boolean,
       default: false
+    },
+    currentRepository: {
+      type: Object,
+      default: () => {}
     }
   },
   methods: {
-    allTags(tags) {
-      return tags.map((tag) => {
-        return `#${tag} `;
-      });
-    },
-    openModal() {
+    openModal(repo) {
       this.$emit('set-is-open', true);
+      this.$emit('set-current-repository', repo);
+    },
+    displayTagsAsText(tags) {
+      return tags && tags.join(', ');
     }
   }
 }

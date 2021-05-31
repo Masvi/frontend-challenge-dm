@@ -5,11 +5,15 @@
       <Table 
         :repos="repositories" 
         :is-open="isOpen"
+        :current-repository="currentRepository"
         @set-is-open="setIsOpen"
+        @set-current-repository="setCurrentRepository"
       />
       <Modal 
         :is-open="isOpen" 
+        :current-repository="currentRepository"
         @set-is-open="setIsOpen"
+        @set-repository-tags="setRepositoryTags"
       />
     </div>
   </div>
@@ -35,12 +39,19 @@ export default {
   },
   data() {
     return {
-      isOpen: false
+      isOpen: false,
+      currentRepository: {}
     }
   },
   methods: {
     setIsOpen(value) {
       this.isOpen = value;
+    },
+    setCurrentRepository(value) {
+      this.currentRepository = value;
+    },
+    setRepositoryTags(value) {
+      this.currentRepository.tags = value.replace(/\s/g, '').split(',');
     }
   }
 }
