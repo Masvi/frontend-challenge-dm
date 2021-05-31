@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="list">
     <Search />
     <Table :repos="repositories" />
   </div>
@@ -23,3 +23,7 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  @import './styles.scss';
+</style>
