@@ -1,3 +1,4 @@
+@import '@/assets/global/colors.scss';
 @import '@/assets/global/typography.scss';
 
 .search {
@@ -8,6 +9,15 @@
   width: 100%;
   height: calc(100vh - 120px);
   text-align: center;
+
+  &__error {
+    max-width: 500px;;
+
+    p {
+      font-size: 14px;
+      color: $red300;
+    }
+  }
 
   &__group {
     display: flex;

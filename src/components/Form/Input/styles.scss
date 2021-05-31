@@ -9,13 +9,18 @@
     font-family: $font-primary;
     border: 2px solid $black;
     transition: all .4s ease-out;
-
+    
     &--search {
       padding-left: 32px;
       background-image: url('../../../assets/search.svg');
       background-position: left 10px center;
       background-size: 16px auto;
       background-repeat: no-repeat;
+    }
+    
+    &--error {
+      color: $red300;
+      border-color: $red300;
     }
   }
 }

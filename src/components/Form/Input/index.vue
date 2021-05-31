@@ -5,6 +5,7 @@
     :placeholder="placeholder"
     :value="value"
     @input="$emit('input', $event.target.value)"
+    @keyup="$emit('keyup', $event.target.value)"
   >
 </template>
 

@@ -2,7 +2,9 @@
   <section class="notfound">
     <div class="wrap">
       <div class="notfound__container">
-        <h2 class="notfound__title">Nada encontrado!</h2>
+        <h2 class="notfound__title">
+          Nada encontrado!
+        </h2>
         <p>Ops, infelizmente não existem repositórios favoritados para este usuário.</p>
         <Button 
           :type="'button'" 

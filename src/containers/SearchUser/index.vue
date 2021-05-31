@@ -6,13 +6,22 @@
           class="search__form"
           @submit.prevent="getStarredRepositoriesByUser"
         >
+          <div
+            v-if="error"
+            class="search__error"
+          >
+            <h3>Ops, ocorreu um erro!</h3>
+            <p>O usuário <strong>{{ username }}</strong> não existe. Por favor, verifique o nome de usuário e tente novamente.</p>
+          </div>
           <div class="search__group">
             <p>https://github.com/</p>
             <Input 
               v-model="username"
+              class="form__input"
               :type="'text'" 
-              :class="'form__input'" 
+              :class="`${error && 'form__input--error'}`"
               :placeholder="'Usuário do github'"
+              @keyup="revalidateUsername"
             />
           </div>
           <Button
@@ -37,6 +46,12 @@
       Input,
       Button
     },
+    props: {
+      error: {
+        type: Boolean,
+        default: false
+      }
+    },
     data () {
       return {
         username: ''
@@ -46,6 +61,9 @@
       getStarredRepositoriesByUser () {
         this.$emit('get-repos', this.username);
       },
+      revalidateUsername () {
+        this.$emit('revalidate-username', this.username);
+      }
     }
   }
 </script>
