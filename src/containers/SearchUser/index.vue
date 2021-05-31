@@ -14,8 +14,9 @@
             <p>https://github.com/</p>
             <Input 
               v-model="username"
+              class="form__input"
               :type="'text'" 
-              :class="`form__input ${error ? 'form__input--error' : ''}`"
+              :class="`${error && 'form__input--error'}`"
               :placeholder="'Usuário do github'"
               @keyup="revalidateUsername"
             />
