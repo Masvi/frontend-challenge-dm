@@ -12,7 +12,7 @@
   import Input from '@/components/Form/Input';
 
   export default {
-    name: 'Filter',
+    name: 'Search',
     components: {
       Input
     }
