@@ -1,7 +1,9 @@
 <template>
-  <div class="list">
-    <Search />
-    <Table :repos="repositories" />
+  <div class="wrap">
+    <div class="list">
+      <Search />
+      <Table :repos="repositories" />
+    </div>
   </div>
 </template>
 
