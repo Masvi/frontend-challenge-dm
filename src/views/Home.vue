@@ -37,7 +37,7 @@ export default {
     return {
       repositories: [],
       isLoading: false,
-      isError: false
+      isError: false,
       isEmpty: false
     };
   },
