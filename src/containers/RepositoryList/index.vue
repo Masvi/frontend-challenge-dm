@@ -1,7 +1,6 @@
 <template>
   <div class="wrap">
     <div class="list">
-      <<<<<<< HEAD
       <Search 
         @input="findOnList"
       />
@@ -10,10 +9,6 @@
         :is-open="isOpen"
         @set-is-open="setIsOpen"
       />
-      =======
-      <Search />
-      <Table />
-      >>>>>>> 53335a608d25dce3a16f0e6b8f6d393ac83d8345
       <Modal 
         v-if="modalOpen"
         @set-repository-tags="setRepositoryTags"
