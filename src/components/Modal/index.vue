@@ -42,6 +42,7 @@
 <script>
   import Input from '@/components/Form/Input';
   import Button from '@/components/Form/Button';
+  import { mapGetters } from 'vuex';
 
   export default {
     name: 'Modal',
@@ -55,7 +56,11 @@
       }
     },
     computed: {
+      ...mapGetters({
+       currentRepository: "currentRepository",
+      }),
       modalOpen() {
+        this.setValue()
         return this.$store.getters['modalOpen'];
       },
       currentRepository() {
@@ -69,6 +74,11 @@
       saveTagsAndExit() {
         this.$emit('set-repository-tags', this.tags)
         this.closeModal();
+      },
+      setValue() {
+        if (this.currentRepository.tags.length !== 0) { 
+          this.tags = this.currentRepository.tags.join(', ');
+        }
       }
     }
   }
