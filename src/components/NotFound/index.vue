@@ -1,7 +1,7 @@
 <template>
   <section class="notfound">
     <div class="wrap">
-      <div class="notfound__container">
+      <div class="notfound__container" data-test="repositories-empty">
         <h2 class="notfound__title">
           Nada encontrado!
         </h2>

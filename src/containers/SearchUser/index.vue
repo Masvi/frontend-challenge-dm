@@ -9,6 +9,7 @@
           <div
             v-if="error"
             class="search__error"
+            data-test="nonexistent-user"
           >
             <h3>Ops, ocorreu um erro!</h3>
             <p>O usuário <strong>{{ username }}</strong> não existe. Por favor, verifique o nome de usuário e tente novamente.</p>
@@ -22,6 +23,7 @@
               :class="`${error && 'form__input--error'}`"
               :placeholder="'Usuário do github'"
               @keyup="revalidateUsername"
+              data-test="search-user"
             />
           </div>
           <Button
@@ -29,6 +31,7 @@
             :class="'btn'" 
             :label="'Buscar repositórios'"
             @click="getStarredRepositoriesByUser"
+            data-test="search-submit"
           />
         </form>
       </div>
