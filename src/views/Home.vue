@@ -9,7 +9,6 @@
     />
     <RepositoryList
       v-if="repositories.length && !isEmpty"
-      :repositories="repositories"
     />
     <NotFound
       v-if="!repositories.length && isEmpty"
@@ -35,19 +34,36 @@ export default {
   },
   data() {
     return {
-      repositories: [],
       isLoading: false,
       isError: false,
       isEmpty: false
     };
+  },
+  computed: {
+    repositories() {
+      return this.$store.getters['repositories'];
+    }
   },
   methods: {
     getStarredRepositoriesByUser(username) {
       this.isError = false;
       this.handleLoading();
       service.getStarredRepositories(username).then(({ data }) => {
-        console.log('data', data);
-        this.repositories = data;
+        const repositories = data.map((repository) => {
+          const { id, name, language, url, description } = repository;
+
+          return {
+            id,
+            name,
+            language,
+            url,
+            description,
+            tags: []
+          }
+        });
+
+        this.$store.dispatch({ type: 'setRepositories', value: repositories });
+
         if(!data.length) {
           this.isEmpty = true;
         }

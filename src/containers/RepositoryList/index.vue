@@ -2,14 +2,10 @@
   <div class="wrap">
     <div class="list">
       <Search />
-      <Table 
-        :repos="repositories" 
-        :is-open="isOpen"
-        @set-is-open="setIsOpen"
-      />
+      <Table />
       <Modal 
-        :is-open="isOpen" 
-        @set-is-open="setIsOpen"
+        v-if="modalOpen"
+        @set-repository-tags="setRepositoryTags"
       />
     </div>
   </div>
@@ -27,20 +23,14 @@ export default {
     Table,
     Modal
   },
-  props: {
-    repositories: {
-      type: Array,
-      default: () => []
+  computed: {
+    modalOpen() {
+      return this.$store.getters['modalOpen'];
     },
   },
-  data() {
-    return {
-      isOpen: false
-    }
-  },
   methods: {
-    setIsOpen(value) {
-      this.isOpen = value;
+    setRepositoryTags(value) {
+      this.$store.dispatch({type: 'setRepositoryTags', value: value.replace(/\s/g, '').split(',')})
     }
   }
 }

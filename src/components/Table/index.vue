@@ -9,7 +9,7 @@
     </div>
     <div class="table__content">
       <div
-        v-for="(repo, index) in repos"
+        v-for="(repo, index) in repositories"
         :key="index"
         class="table__columns"
       >
@@ -34,8 +34,8 @@
         </div>
         <div class="column">
           <label class="column__label">Tags</label>
-          <p v-if="repo.tags && repo.tags.length">
-            {{ repo.tags | allTags }}
+          <p v-if="repo.tags && repo.tags.length && repo.tags[0] !== ''">
+            {{ displayTagsAsText(repo.tags) }}
           </p>
           <p v-else>
             No tags to show.
@@ -45,7 +45,7 @@
           <button
             class="column__edit"
             type="button"
-            @click="openModal"
+            @click="openModal(repo)"
           >
             <span>Edit</span>
           </button>
@@ -58,24 +58,18 @@
 <script>
 export default {
   name: 'Table',
-  props: {
-    repos: {
-      type: Array,
-      default: () => [],
-    },
-    isOpen: {
-      type: Boolean,
-      default: false
+  computed: {
+    repositories() {
+      return this.$store.getters['repositories'];
     }
   },
   methods: {
-    allTags(tags) {
-      return tags.map((tag) => {
-        return `#${tag} `;
-      });
+    openModal(repo) {
+      this.$store.dispatch({ type: 'setModalOpen' });
+      this.$store.dispatch({ type: 'setCurrentRepository', value: repo });
     },
-    openModal() {
-      this.$emit('set-is-open', true);
+    displayTagsAsText(tags) {
+      return tags && tags.join(', ');
     }
   }
 }
