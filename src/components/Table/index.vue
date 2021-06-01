@@ -34,7 +34,7 @@
         </div>
         <div class="column">
           <label class="column__label">Tags</label>
-          <p v-if="repo.tags && repo.tags.length">
+          <p v-if="repo.tags && repo.tags.length && repo.tags[0] !== ''">
             {{ displayTagsAsText(repo.tags) }}
           </p>
           <p v-else>
