@@ -15,6 +15,7 @@
         v-for="(repo, index) in repositories"
         :key="index"
         class="table__columns"
+        data-test="repository-item"
       >
         <div class="column">
           <label class="column__label">Repository</label>
@@ -37,7 +38,10 @@
         </div>
         <div class="column">
           <label class="column__label">Tags</label>
-          <p v-if="repo.tags && repo.tags.length && repo.tags[0] !== ''">
+          <p 
+            v-if="repo.tags && repo.tags.length && repo.tags[0] !== ''" 
+            :data-test="`tags-repository-${index + 1}`"
+          >
             {{ displayTagsAsText(repo.tags) }}
           </p>
           <p v-else>
@@ -48,6 +52,7 @@
           <button
             class="column__edit"
             type="button"
+            :data-test="`edit-repository-${index + 1}`"
             @click="openModal(repo)"
           >
             <span>Edit</span>

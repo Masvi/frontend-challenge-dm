@@ -6,6 +6,7 @@
       :class="'form__input form__input--search'"
       :placeholder="'Filtrar por tags'"
       @keyup="$emit('input', search)"
+      data-test="search-term"
     />
   </div>
 </template>
