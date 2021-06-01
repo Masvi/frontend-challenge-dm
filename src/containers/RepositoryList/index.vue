@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     setRepositoryTags(value) {
-      this.$store.dispatch({type: 'setRepositoryTags', value: value.replace(/\s/g, '').split(',')})
+      this.$store.dispatch({type: 'setRepositoryTags', value: Array.from(new Set(value.replace(/\s/g, '').split(',')))})
     }
   }
 }
