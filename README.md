@@ -13,21 +13,28 @@ First, cloning the project. Then, open your bash and run the following commands:
 
 ```bash
 # install dependencies
-yarn
-# or npm install
+npm install
+# or yarn
 ```
 
 And to start the project:
 
 ```bash
 # to start the project
-yarn start
-# or npm run serve
+npm run serve
+# or yarn start
 ```
 
 A server on port [8080](http://localhost:8080) will be started.
 
 ## :microscope: Testing
+
+To run Cypress end-2-end tests:
+
+```
+$ npm run test:e2e
+# or yarn test:e2e
+```
 
 
 ## :hammer: Building
@@ -36,6 +43,6 @@ To build the project:
 
 ```bash
 # to start the project
-yarn build
-# or npm run build
+$ npm run build
+# or yarn build
 ```

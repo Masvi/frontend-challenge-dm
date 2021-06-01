@@ -1,5 +1,8 @@
 <template>
-  <div class="table">
+  <div
+    class="table"
+    data-test="repositories-container"
+  >
     <div class="table__header">
       <div>Repository</div>
       <div>Description</div>
