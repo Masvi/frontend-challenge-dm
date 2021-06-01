@@ -1,6 +1,7 @@
 <template>
   <div class="wrap">
     <div class="list">
+      <<<<<<< HEAD
       <Search 
         @input="findOnList"
       />
@@ -9,9 +10,13 @@
         :is-open="isOpen"
         @set-is-open="setIsOpen"
       />
+      =======
+      <Search />
+      <Table />
+      >>>>>>> 53335a608d25dce3a16f0e6b8f6d393ac83d8345
       <Modal 
-        :is-open="isOpen" 
-        @set-is-open="setIsOpen"
+        v-if="modalOpen"
+        @set-repository-tags="setRepositoryTags"
       />
     </div>
   </div>
@@ -29,16 +34,10 @@ export default {
     Table,
     Modal
   },
-  props: {
-    repositories: {
-      type: Array,
-      default: () => []
+  computed: {
+    modalOpen() {
+      return this.$store.getters['modalOpen'];
     },
-  },
-  data() {
-    return {
-      isOpen: false
-    }
   },
   methods: {
     setIsOpen(value) {
@@ -46,6 +45,9 @@ export default {
     },
     findOnList(value) {
       console.log(value)
+    },
+    setRepositoryTags(value) {
+      this.$store.dispatch({type: 'setRepositoryTags', value: value.replace(/\s/g, '').split(',')})
     }
   }
 }
