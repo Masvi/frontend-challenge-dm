@@ -19,19 +19,19 @@
             <Input 
               v-model="username"
               class="form__input"
+              data-test="search-user"
               :type="'text'" 
               :class="`${error && 'form__input--error'}`"
               :placeholder="'Usuário do github'"
               @keyup="revalidateUsername"
-              data-test="search-user"
             />
           </div>
           <Button
+            data-test="search-submit"
             :type="'button'" 
             :class="'btn'" 
             :label="'Buscar repositórios'"
             @click="getStarredRepositoriesByUser"
-            data-test="search-submit"
           />
         </form>
       </div>
