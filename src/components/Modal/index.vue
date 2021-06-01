@@ -4,6 +4,7 @@
     :class="{
       'modal--show': modalOpen
     }"
+    data-test="modal-tags"
   >
     <div class="wrap">
       <form 
@@ -19,17 +20,20 @@
           type="text"
           class="form__input"
           placeholder="Insira suas tags separadas por vírgula."
+          data-test="edit-tag-input"
         />
         <div class="modal__actions">
           <Button
             type="button"
             class="btn"
+            data-test="cancel-edit-repository"
             :label="'Cancelar'"
             @click="closeModal"
           />
           <Button
             type="button"
             class="btn"
+            data-test="save-edit-repository"
             :label="'Salvar'"
             @click="saveTagsAndExit"
           />
