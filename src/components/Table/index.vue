@@ -20,9 +20,9 @@
           <label class="column__label">Repository</label>
           <a
             class="column__anchor"
-            :href="repo.html_url"
             target="_blank"
             rel="noopener noreferrer"
+            @click="openUrl(repo)"
           >
             {{ repo.name ? repo.name : 'No name to show.' }}
           </a>
@@ -73,6 +73,9 @@ export default {
     },
     displayTagsAsText(tags) {
       return tags && tags.join(', ');
+    },
+    openUrl({ html_url }) {
+      window.open(html_url, '_blank');
     }
   }
 }

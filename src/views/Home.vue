@@ -50,13 +50,13 @@ export default {
       this.handleLoading();
       service.getStarredRepositories(username).then(({ data }) => {
         const repositories = data.map((repository) => {
-          const { id, name, language, url, description } = repository;
+          const { id, name, language, html_url, description } = repository;
 
           return {
             id,
             name,
             language,
-            url,
+            html_url,
             description,
             tags: []
           }
