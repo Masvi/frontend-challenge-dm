@@ -1,7 +1,9 @@
 <template>
   <div class="wrap">
     <div class="list">
-      <Search />
+      <Search 
+        @input="findOnList"
+      />
       <Table 
         :repos="repositories" 
         :is-open="isOpen"
@@ -41,6 +43,9 @@ export default {
   methods: {
     setIsOpen(value) {
       this.isOpen = value;
+    },
+    findOnList(value) {
+      console.log(value)
     }
   }
 }
